@@ -1,1 +1,1 @@
-# asg0
+Extend the matrix library provided by the textbook to support vector operations such as addition, subtraction, multiplication, cross product, dot product, etc.
