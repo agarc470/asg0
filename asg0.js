@@ -24,7 +24,6 @@ function drawVector(v, color) {
     var x2 = x1 + v.elements[0] * 20; 
     var y2 = y1 - v.elements[1] * 20; 
 
-    
     ctx.beginPath();
     ctx.moveTo(x1, y1); 
     ctx.lineTo(x2, y2); 
@@ -62,21 +61,21 @@ function handleDrawOperationEvent() {
 
     var selectedOp = document.getElementById('op-select').value;
     if (selectedOp === "add") {
-        var v3 = new Vector3([x1 + x2, y1 + y2, 0]);
+        var v3 = v1.add(v2);
         drawVector(v3, 'green');
     } else if (selectedOp === "subtract") {
-        var v3 = new Vector3([x1 - x2, y1 - y2, 0]);
+        var v3 = v1.sub(v2);
         drawVector(v3, 'green');
     } else if (selectedOp === "multiply") {
         var scalar = document.getElementById('scalar').value;
-        var v3 = new Vector3([x1 * scalar, y1 * scalar, 0]);
-        var v4 = new Vector3([x2 * scalar, y2 * scalar, 0]);
+        var v3 = v1.mul(scalar);
+        var v4 = v2.mul(scalar);
         drawVector(v3, 'green');
         drawVector(v4, 'green');
     } else if (selectedOp === "divide") {
         var scalar = document.getElementById('scalar').value;
-        var v3 = new Vector3([x1 / scalar, y1 / scalar, 0]);
-        var v4 = new Vector3([x2 / scalar, y2 / scalar, 0]);
+        var v3 = v1.div(scalar);
+        var v4 = v2.div(scalar);
         drawVector(v3, 'green');
         drawVector(v4, 'green');
     } else if (selectedOp === "angleBetween") {
